@@ -9,7 +9,6 @@ import (
 
 	// "strings"
 	"time"
-
 )
 
 func GetWord(dir string) string {
@@ -81,8 +80,18 @@ func GetWord(dir string) string {
     }
 
     // 提取单词
-    re := regexp.MustCompile(`\w+`)
-    words := re.FindAllString(randomLine, -1)
+    re := regexp.MustCompile(`\b\w+(-\w+)*\b`)
+    matches := re.FindAllStringSubmatch(randomLine, -1)
+    fmt.Println("\nmatches: ", matches)
+
+    var words []string
+    for _,match := range matches {
+        if len(matches) >= 1 {
+            words = append(words, match[0])
+        }
+    }
+
+    fmt.Println("word: :", words)
 
     // for len(words)==0 {
     //   fmt.Println("error: words enpty")
