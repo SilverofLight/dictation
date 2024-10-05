@@ -82,7 +82,7 @@ func GetWord(dir string) string {
     // 提取单词
     re := regexp.MustCompile(`\b\w+(-\w+)*\b`)
     matches := re.FindAllStringSubmatch(randomLine, -1)
-    fmt.Println("\nmatches: ", matches)
+    // fmt.Println("\nmatches: ", matches)
 
     var words []string
     for _,match := range matches {
@@ -91,7 +91,7 @@ func GetWord(dir string) string {
         }
     }
 
-    fmt.Println("word: :", words)
+    // fmt.Println("word: :", words)
 
     // for len(words)==0 {
     //   fmt.Println("error: words enpty")

@@ -15,13 +15,14 @@ func Add(word string, book string)  {
         return
     }
     defer file.Close()
+    // fmt.Println("OpenFile succeed") DONE
 
     scanner := bufio.NewScanner(file)
     for scanner.Scan() {
         if scanner.Text() == word {
             fmt.Println("/nAlready exist!!")
+            return
         }
-        return
     }
 
     writer := bufio.NewWriter(file)

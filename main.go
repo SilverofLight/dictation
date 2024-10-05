@@ -20,7 +20,7 @@ func main() {
     for {
         fmt.Println("")
         randomWord := getWord.GetWord(dir);
-        fmt.Println(lightblue + black + "    " + randomWord, "                                                " + reset)
+        fmt.Println(lightblue + black + "    " + randomWord + "    " + reset)
         fmt.Println("\n remember it? y or n\n")
         fmt.Printf("> ")
         // scanner.Scan()
