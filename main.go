@@ -55,7 +55,6 @@ func main() {
             add := scanner.Text()
             if add == "n" {
             }else {
-                // TODO scan vocabulary book
                 addtobook.Add(randomWord, voc_book)
             }
         }else {
@@ -82,7 +81,6 @@ func main() {
                 add := scanner.Text()
                 if add == "n" {
                 }else {
-                    // TODO scan vocabulary book
                     addtobook.Add(randomWord, voc_book)
                 }
             }

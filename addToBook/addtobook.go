@@ -1,13 +1,13 @@
 package addtobook
 
 import (
-    "bufio"
-    "fmt"
-    "os"
+	"bufio"
+	"fmt"
+	"os"
 )
 
 func Add(word string, book string)  {
-    file, err := os.OpenFile(book, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+    file, err := os.OpenFile(book, os.O_APPEND|os.O_CREATE|os.O_RDWR, 0644)
     // fmt.Println("word:", word)
     // fmt.Println("file:", book)
     if err != nil {
@@ -15,6 +15,15 @@ func Add(word string, book string)  {
         return
     }
     defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        if scanner.Text() == word {
+            fmt.Println("/nAlready exist!!")
+        }
+        return
+    }
+
     writer := bufio.NewWriter(file)
     newLine := word + "\n"
     
@@ -29,5 +38,5 @@ func Add(word string, book string)  {
         return
     }
     
-    fmt.Println("Add to vocabulary book succeed")
+    fmt.Println("\nAdd to vocabulary book succeed")
 }
