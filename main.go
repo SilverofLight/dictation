@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"time"
 )
 
 func main() {
@@ -61,6 +62,7 @@ func main() {
             if add == "n" {
             }else {
                 addtobook.Add(randomWord, voc_book)
+                time.Sleep(1*time.Second)
             }
         }else {
             // can remember
@@ -87,6 +89,7 @@ func main() {
                 if add == "n" {
                 }else {
                     addtobook.Add(randomWord, voc_book)
+                    time.Sleep(1*time.Second)
                 }
             }
         }
