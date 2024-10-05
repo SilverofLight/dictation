@@ -14,10 +14,14 @@ func main() {
 
     dir := "/home/silver/Study/etyma/mindmap/"
     voc_book := "/home/silver/Study/etyma/voc_book.md"
+    lightblue := "\033[48;5;153m"
+    black := "\033[30m"
+    reset := "\033[0m"
     for {
         fmt.Println("")
         randomWord := getWord.GetWord(dir);
-        fmt.Println(randomWord, "\n\nremember it? y or n\n")
+        fmt.Println(lightblue + black + "    " + randomWord, "                                                " + reset)
+        fmt.Println("\n remember it? y or n\n")
         fmt.Printf("> ")
         // scanner.Scan()
 
