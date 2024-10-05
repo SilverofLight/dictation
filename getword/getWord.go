@@ -1,13 +1,15 @@
 package getWord
 
 import (
-    "bufio"
-    "fmt"
-    "math/rand"
-    "os"
-    "regexp"
-    // "strings"
-    "time"
+	"bufio"
+	"fmt"
+	"math/rand"
+	"os"
+	"regexp"
+
+	// "strings"
+	"time"
+
 )
 
 func GetWord(dir string) string {
@@ -69,11 +71,24 @@ func GetWord(dir string) string {
     // 随机选择一行
     randomLine := lines[rng.Intn(len(lines))]
     // fmt.Println("随机选择的行:", randomLine)
+    for {
+        randomLine = lines[rng.Intn(len(lines))]
+        if randomLine != "" {
+            break // 如果选中的行非空，退出循环
+        }
+        // fmt.Println("enpty, retry")
+        // 如果选中的行为空，继续循环并重试
+    }
 
     // 提取单词
     re := regexp.MustCompile(`\w+`)
     words := re.FindAllString(randomLine, -1)
 
+    // for len(words)==0 {
+    //   fmt.Println("error: words enpty")
+    //   fmt.Println("filename: ", randomFile)
+    //   words = re.FindAllString(randomLine, -1)
+    // }
     randomWord := words[rng.Intn(len(words))]
     if len(words) > 0 {
         // 随机选择一个单词
