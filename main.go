@@ -18,6 +18,7 @@ func main() {
     black := "\033[30m"
     reset := "\033[0m"
     for {
+        fmt.Print("\033[H\033[2J")
         fmt.Println("")
         randomWord := getWord.GetWord(dir);
         fmt.Println(lightblue + black + "    " + randomWord + "    " + reset)
